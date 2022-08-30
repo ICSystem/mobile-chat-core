@@ -1,0 +1,54 @@
+/* Container */
+/* line 2, ../sass/loading.scss */
+.progress {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #93A2AC;
+  font-weight: 100;
+  margin: -5rem; }
+
+/* line 10, ../sass/loading.scss */
+.progress > div:before {
+  content: attr(data-name);
+  position: absolute;
+  width: 100%;
+  bottom: -2rem;
+  font-weight: 400; }
+
+/* line 18, ../sass/loading.scss */
+.progress > div:after {
+  content: attr(data-percent);
+  position: absolute;
+  width: 100%;
+  top: 3.7rem;
+  left: 0;
+  font-size: 2rem;
+  text-align: center; }
+
+/* Item */
+/* line 29, ../sass/loading.scss */
+.progress svg {
+  width: 10rem;
+  height: 10rem; }
+
+/* line 34, ../sass/loading.scss */
+.progress svg:nth-child(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg); }
+
+/* line 44, ../sass/loading.scss */
+.progress svg:nth-child(2) path {
+  fill: none;
+  stroke-width: 25;
+  stroke-dasharray: 629;
+  stroke: #eaf8eb;
+  -webkit-animation: load 10s;
+  -moz-animation: load 10s;
+  -o-animation: load 10s;
+  animation: load 10s; }

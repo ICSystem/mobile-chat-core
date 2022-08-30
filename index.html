@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru" dir="ltr" id="html-main">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <title>KlbIm-MCP</title>
+
+<script type="text/javascript">
+    var Klb = {};
+    Klb.documentUri  = 'http://localhost:1841/build/production/KlbIm/';
+    Klb.domainChat   = 'ok.kolobiz.com';
+    Klb.domainStatic = 'static.kolobiz.com';
+    Klb.scriptImLists = [
+                "//" + Klb.domainStatic + "/js/work/dcode.js",
+                "//" + Klb.domainStatic + "/js/work/common.js",
+                "//" + Klb.domainStatic + "/js/work/brws.js",
+                "//" + Klb.domainStatic + "/js/work/connect.js",
+                "//" + Klb.domainStatic + "/js/work/im.js"
+            ];
+
+    var loader_flag = 0;
+    var messages = messages|| { sys: new Array(), ids: new Array() };
+    var phonePattern= [];
+    var rclass = /[\n\t\r]/g,
+        rspaces = /\s+/,
+        rreturn = /\r/g,
+        rspecialurl = /^(?:href|src|style)$/,
+        rtype = /^(?:button|input)$/i,
+        rfocusable = /^(?:button|input|object|select|textarea)$/i,
+        rclickable = /^a(?:rea)?$/i,
+        rradiocheck = /^(?:radio|checkbox)$/i;
+
+    phonePattern[0] = [];
+    phonePattern[0]['reg'] = /^\(\s*\+*38*\s*050$/;
+    phonePattern[0]['bgn'] = '+38 (050)';
+
+    var threadParams = {
+        inpcontainer: "chatwnd", msgcontainer: "msgwnd", tplcontainer: "msgcontentbottom", prefcontainer: "prefixbody_content", postcontainer: "postfixbody_content"
+        , tabfromcontainer: 'ui-tabs-box'
+        , tpl: { onrecive: 'button', onpost: 0, ontimeout: 0 }, tplHideTime: 10000, tplShowTime: 10000 , tplHideTime: 10000, tplShowTime: 10000, tplloadind: 'chatloading'
+        , massege_rating:"Спасибо, мы получили Ваш отзыв. Он поможет нам улучшить наш сервис.", massege_estimate: "Оценка принята", message_long: "Сообщение слишком длинное!!!", message_filesend: "Ваш файл доставлен оператору!", message_wait: "Не закрывайте окно чата, \n консультант ответит Вам в течении 5 минут.\n Cпасибо за понимание!", message_operatordead: "Оператор покинул диалог!\n", message_userdead: "Посетитель закрыл окно диалога!"
+        , pos2left:'0px',pos2top:'0px', pos2width:'380px; bottom: 0px; right: 0px;', pos2height:'470px'
+        , agid:'1', group:'1', servl:"http://ok.kolobiz.com/thrd/", wroot:"http://ok.kolobiz.com", lang:'ru', user:"1"
+    };
+</script>
+
+<script id="template-messagecontent" type="text/x-tmpl">
+<div id="chatwnout">
+   <div id="chatwnout.top" class="x-inner x-vertical x-align-stretch x-unsized" ></div>
+   <div id="chatwndtd">
+      <div id="chatwnd_div" >
+<div id="chatwnd">
+    <div id="chatList">
+    <div id="msgcontenttop"></div>
+<table id="msgtblcontent" width="100%" cellspacing="0" cellpadding="0" border="0"><tbody>
+    <tr><td valign="top" class=" message borderdwn"><div id="msghistory" class="x-container x-unsized"></div></td></tr>
+    <tr><td valign="top" class="message"><div id="msgcontent" class="x-inner x-vertical x-align-stretch x-unsized" ></div></td></tr>
+    <tr><td valign="top" class="bottom"><div id="msgcontentbottom" class="x-container x-unsized"></div></td></tr>
+</tbody></table>
+        <a id="msgbottom"></a>
+    </div>
+</div>
+     </div>
+  </div>
+   <div id="chatwnout.bottom" class="x-inner x-vertical x-align-stretch x-unsized" ></div>
+</div>
+</script>
+
+<script id="template-message-events" type="text/x-tmpl">
+    <div id="msgtblbottom-event_down" class="x-icon-grid-item x-info-event"></div>
+    <div id="msgtblbottom-number_down" class="x-icon-grid-item x-info-number">
+        <span id="msgtblbottom-number_badge" class="x-info-badge bg-badge-red">0</span>
+        <svg  class="glyph-svg stroked" viewBox="0 0 44 44" width="100%" height="100%">
+           <circle cx="22" cy="22" r="21" class="line" fill="none" stroke="rgb(41, 156, 72)" stroke-width="2" stroke-miterlimit="10"></circle>
+           <path class="line" fill="none" stroke="rgb(41, 156, 72)" stroke-width="2" stroke-miterlimit="5" d="M11.4 16.7L22 27.3l10.6-10.6"></path>
+        </svg>
+    </div>
+</script>
+
+<script id="template-message-items" type="text/x-tmpl">
+<div class="item" id="mes-{%=o.hash%}" hash="{%=o.hash%}">
+    <div class="n{%=o.kind%}">
+        <div class="inf{%=o.kind%}"></div><div class="avatar {%=o.kind%}-img-thumb">{%=o.avatar%}</div>
+        <span class="time">[{%=o.timeis%}]</span>
+        <span class="n{%=o.kind%} name">{%=o.name%}</span>
+        <span class="m{%=o.kind%} mess">{%=o.message%}</span>
+    </div>
+</div>
+</script>
+
+<script id="template-message-gallery" type="text/x-tmpl">
+    <div class="lightbox lightbox_container" id="container_{%=o.id%}">
+       <button title="Закрыть окно" onclick="klbsignal('onhide', 'body_iframe'); klbsignal('onclear', 'body_iframe'); return false;"
+            class="lightbox_btn_close"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill-opacity=".2" fill="#000" width="24" height="24" rx="12"></rect><path d="M4 4h16v16H4"></path><path fill="#FFF" d="M16.5 8.406l-.906-.906L12 11.094 8.406 7.5l-.906.906L11.094 12 7.5 15.594l.906.906L12 12.906l3.594 3.594.906-.906L12.906 12"></path></g></svg></button>
+       <div class="lightbox_frames">
+
+            <div class="lightbox_content">
+                <img src="{%=o.url%}"  onload="klbsignal('onhide', 'lightbox_loadingIndicator');"  align="center" style="position:absolute;z-index:-1; border:none; right: 0px;bottom: 0px;top:{%=o.top%}; left:{%=o.left%};width:{%=o.width%};margin:30% 0px 30% 0px;">
+            </div>
+
+            <div id="lightbox_loadingIndicator" class="lightbox_loadingIndicator"></div>
+            <div class="lightbox_error lightbox_documentError">Не удалось загрузить этот дизайн. Попробуйте обновить страницу в браузере.</div>
+            <div class="lightbox_pagination">
+                <button class="lightbox_paginationButton lightbox_enterPresentation" title="Открыть в отдельном окне. Включить режим презентации"
+                 onclick="klbsignal('winopen', { url: '{%=o.url%}', name: 'winpresentation' }); return false;"></button>
+                <button class="lightbox_paginationButton lightbox_exitPresentation" title="Открыть в отдельном окне. Выключить режим презентации"></button>
+                <span class="lightbox_paginationSeparator"></span>
+                <button class="lightbox_paginationButton lightbox_previousFrame lightbox_previousFrame--disabled" title="Предыдущая страница"></button>
+                <span class="lightbox_currentFrameText">1/1</span>
+                <button class="lightbox_paginationButton lightbox_nextFrame lightbox_nextFrame--disabled" title="Далее"></button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<style type="text/css">
+    html, body {
+        height: 100%;
+        background-color: #eaf8eb;
+    }
+    @-webkit-keyframes load { 0% { stroke-dashoffset:0 } }
+    @-moz-keyframes    load { 0% { stroke-dashoffset:0 } }
+    @keyframes         load { 0%  {  stroke-dashoffset:0 } }
+    @-webkit-keyframes appLoadingIndicator{
+        0%  { opacity: 0.8 }
+        50% {  opacity: 0  }
+        100% {  opacity: 0.8 }
+    }
+    #appLoadingIndicator {
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        text-align: center;
+        width: 100%;
+        height: 30px;
+        /*-webkit-animation-name: appLoadingIndicator;*/
+        -webkit-animation-duration: 0.5s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: linear;
+    }
+</style>
+    <link   rel="stylesheet" type="text/css" href="resources/css/loading.css">
+    <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
+</head>
+<body>
+    <div id="body_iframe" class="onhide" style="position:absolute; top:0; left: 0px; z-index:10500;"></div>
+    <div id="appLoadingIndicator">
+        <svg width="0" height="0">
+            <defs>
+                <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#618099"/>
+                    <stop offset="100%" stop-color="#8e6677"/>
+                </linearGradient>
+                <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                    <stop stop-color="#8e6677"/>
+                    <stop offset="100%" stop-color="#9b5e67"/>
+                </linearGradient>
+                <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                    <stop stop-color="#9b5e67"/>
+                    <stop offset="100%" stop-color="#9c787a"/>
+                </linearGradient>
+                <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                    <stop stop-color="#9c787a"/>
+                    <stop offset="100%" stop-color="#817a94"/>
+                </linearGradient>
+                <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                    <stop stop-color="#817a94"/>
+                    <stop offset="100%" stop-color="#498a98"/>
+                </linearGradient>
+                <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                    <stop stop-color="#498a98"/>
+                    <stop offset="100%" stop-color="#618099"/>
+                </linearGradient>
+
+            </defs>
+        </svg>
+        <div class="progress">
+            <div id="loading-progress-percent" data-name="Loading ..." data-percent="1%">
+                <svg viewBox="-10 -10 220 220">
+                    <g fill="none" stroke-width="6" transform="translate(100,100)">
+                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                    </g>
+                </svg> <svg viewBox="-10 -10 220 220">
+                    <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="629"></path>
+                 </svg>
+            </div>
+        </div>
+        <script type="text/javascript" >
+            var loaderTimer = null, loaderSpped = 100;
+            (function loaderUpdate() {
+                var el = document.getElementById('loading-progress-percent'),
+                    percentVal = 0;
+                if (el) {  percentVal = parseInt(el.getAttribute('data-percent') || 0); }
+                if (loaderTimer)  clearTimeout(loaderTimer);
+                if (percentVal < 100) {
+                    percentVal++;
+                    loaderTimer = setTimeout(loaderUpdate, loaderSpped);
+                } else {
+                    if (loaderTimer) delete loaderTimer;
+                    percentVal = 100;
+                }
+                if (el) { el.setAttribute('data-percent', percentVal + '%'); }
+            })();
+        </script>
+    </div>
+
+</body>
+</html>

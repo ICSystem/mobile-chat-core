@@ -1,0 +1,192 @@
+//-------------------------------------------------------
+// Bootstrap vars
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$grid-gutter-width: 30px;
+
+
+/*------------Colors----------------*/
+$header-bg: rgb(219, 248, 228);
+
+/*------------Цвета ТЗ---------------------*/
+$vw-blue: rgba(0,153,218,1);
+$vw-sky-grey: rgba(243,245,246,1);
+$vw-night-grey: rgba(29,31,32,1);
+$vw-midnight-grey: rgba(47,53,56,1);
+$vw-midnight-grey2: rgba(128,136,144,1);
+$vw-soft-grey: rgba(189,195,198,1);
+$vw-calm-grey: rgba(222,225,227,1);
+$vw-ocean-blue: rgba(0,104,170,1);
+$vw-warm-orange: rgba(250,170,0,1);
+$vw-warning-red: rgba(200,46,45,1);
+$white: rgba(255,255,255,1);
+
+
+/*-------------Цвета volkswagen-vans.co.uk-------------------------*/
+$vw-bg1: rgba(0,146,227,1);
+$vw-bg2: rgba(0,177,235,1);
+
+$vw-bg3: rgba(255,153,51,1);
+$vw-bg4: rgba(255,172,60,1);
+
+/*-------------Цвета SB------------------------------------*/
+$sb-bg1: rgba(71,188,84,1);
+$sb-bg2: rgba(41,145,72,1);
+$sb-bg3: rgb(145, 145, 145);
+
+
+/*-------------------------------------- base Colors --------------------------------------------------*/
+$blue-mt :#005daa;
+$red-mt : #dc291e;
+$red_dark-mt : #af2118;
+
+$ios7-blue: #157efb;
+$ios7-red: #fc3e39;
+$ios7-green: #299c48;
+
+$ios-blue: dynamic(#007aff);
+$ios-red:   dynamic(#fc3e39);
+$ios-green: dynamic(#53d769);
+$ios-onmcp:  #299C48;
+
+$base-color: $ios-onmcp;
+
+$header-bg: rgb(219, 248, 228);
+$header-background-color: $ios-onmcp;
+$header-text-color: #ebffe8 !default;
+
+$background-color:   #FFF !default;
+$fontcolor-color:    #FFF;
+$primary-text-color:   $ios7-blue !default;
+$secondary-text-color: #000 !default;
+
+$button-background-color: #299c48;
+$button-background-color2: #868686;
+$button-text-color:  #FFF !default;
+$button-text-color2:  #FFF !default;
+
+$border-radius-box: 10px;
+$border-radius-base: 2px;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$grid-gutter-width: 30px;
+
+
+//colors
+$black: #000;
+$white: #fff;
+$gray: #808080;
+$concrete: #f2f2f2;
+$silver: #c0c0c0;
+$seashell: #f1f1f1;
+
+$white_10: rgba(255,255,255,0.1);
+$black_10: rgba(0,0,0,0.1);
+$black_15: rgba(0, 0, 0, 0.15);
+$white_15: rgba(255, 255, 255, 0.15);
+$black_12_5: rgba(0, 0, 0, 0.125);
+$black_20: rgba(0,0,0,.2);
+$white_35: rgba(255,255,255,0.35);
+$white_20: rgba(255, 255, 255, 0.2);
+$white_60: rgba(255,255,255,0.6);
+
+//----------------- message content
+$color_message_nouser_bg: #F3F3F3;
+
+//----------------- other
+$color_cape_cod_approx: #414141;
+$color_gallery_approx: #eee;
+$color_silver_chalice_approx: #a8aaab;
+$color_pink_swan_approx: #bbb;
+$color_suva_gray_approx: #888;
+$color_chicago_approx: #585858;
+$color_red_berry_approx: #880000;
+$color_jumbo_approx: #7a8188;
+$color_kashmir_blue_approx: #4d7196;
+$color_nepal_approx: #93a9bd;
+$color_wedgewood_approx: #55789b;
+$color_blumine_approx: #2b587a;
+$color_bilbao_approx: #337128;
+$color_wild_sand_approx: #f3f4f6;
+$color_river_bed_approx: #444a58;
+$color_gray_nurse_approx: #eaeaea;
+$color_boulder_approx: #787878;
+$color_mine_shaft_approx: #333;
+$color_outer_space_approx: #303539;
+$color_desert_storm_approx: #f8f8f8;
+$color_cararra_approx: #ebebeb;
+$color_fuscous_gray_approx: #4f4f4f;
+$color_quill_gray_approx: #d1d3d4;
+$color_mountain_mist_approx: #939598;
+$color_ship_cove_approx: #6d84b4;
+$color_celeste_approx: #ccc;
+$color_black_squeeze_approx: #f5fdfd;
+$color_mid_gray_approx: #585e69;
+$color_rose_approx: #f4007e;
+$color_storm_dust_approx: #666;
+$color_tuatara_approx: #383838;
+$color_storm_dust_60_approx: rgba(100, 100, 100, 0.6);
+$color_dove_gray_approx: #727372;
+$color_bali_hai_approx: #7e9cbc;
+$color_horizon_approx: #5c82ab;
+$color_mercury_approx: #e6e7e8;
+$color_rhino_approx: #234163;
+
+$color_star_dust_approx: #a1a1a1;
+$color_woodsmoke_approx: #10100f;
+$color_mountain_mist_67_approx: rgba(153, 153, 153, 0.67);
+$color_atlantis_approx: #a4cb3a;
+$color_norway_approx: #9fcf9f;
+$color_vivid_tangerine_approx: #ff9f87;
+$color_tapa_approx: #777;
+$color_scarlet_approx: #f30;
+$color_forest_green_approx: #393;
+$color_bon_jour_approx: #e0e0e0;
+$color_san_felix_approx: #005800;
+$color_japanese_laurel_approx: green;
+$color_guardsman_red_approx: rgb(204, 0, 0);
+$color_tundora_approx: #444;
+
+$color_cornflower_blue_approx: #5d9cec;
+$color_scooter_approx: #23b7e5;
+$color_background-color_approx: #ff902b;
+$color_sunset_orange_approx: #f05050;
+
+$color_iron_approx: #d6d6d6;
+$color_havelock_blue_approx: #4b91ea;
+$color_royal_blue_approx: #3483e7;
+$color_tango_approx: #f36f20;
+$color_mai_tai_approx: #b15e00;
+$color_chateau_green_approx: #24b145;
+$color_malachite_approx: #27c24c;
+$color_curious_blue_approx: #1aacda;
+$color_ecstasy_approx: #ff8517;
+$color_chilean_fire_approx: #fc7800;
+$color_cinnabar_approx: #ee3d3d;
+$color_alizarin_crimson_approx: #ec2626;
+$color_mariner_approx: #1b72e2;
+$color_mystic_approx: #e4eaec;
+$color_stack_approx: #8e8e8e;
+$color_jacko_bean_approx: #311901;
+$color_clover_approx: #3c4b12;
+$color_silver_sand_approx: #bdc3c6;
+
+//fonts
+$font_sans-serif: sans-serif;
+$font_0: FontAwesome;
+$font_1: Hdlint-Roboto;
+$font_2: Arial;
+$font_3: Helvetica;
+$font_sans-serif: sans-serif;
+$font_5: Verdana;
+$font_6: Tahoma;
+$font_7: arial;
+$font_8: sans-seri;
+$font_9: tahoma;
+$font_10: helvetica;
+$font_11: Trebuchet MS;
+

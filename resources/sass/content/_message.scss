@@ -1,0 +1,651 @@
+
+#chatwnout {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+}
+
+#chatwndtd {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#chatwnd {
+  width: 100%;
+  height: 100%;
+  border: 1px solid $color_gray_nurse_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px 2px 2px 2px;
+  //Instead of the line below you could use @include background-clip($clip)
+  background-clip: padding-box;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 1px 1px 1px $white_20;
+}
+
+#chatList {
+  //position: absolute;
+  //left: 0;
+  //right: 10px;
+  //top: 0;
+  //bottom: 5px;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  min-width: 270px;
+}
+#chatListBottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#msgcontenttop {
+  height: auto;
+  display: block;
+}
+#msgcontent {
+  height: auto;
+  display: block;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+#msgcontentbottom {
+  height: auto;
+  display: block;
+}
+.messageTpl {
+  display: block;
+  clear: both;
+  color: $color_rhino_approx;
+  margin: 7px 0 15px 10px;
+}
+.messagehide {
+  font-size: 12px;
+  color: $color_fuscous_gray_approx;
+  padding-left: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  line-height: 17px;
+}
+
+.message {
+    color: $color_fuscous_gray_approx;
+    padding: 2px 3px;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    .item {
+      position: relative;
+      width: 100%;
+      //font-size: 12px;
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 10px;
+      }
+
+      .time {
+        position: absolute;
+        color: #a2dda9;
+        line-height: 12px;
+        bottom: 10px;
+        right: 10px;
+        z-index: 100;
+        font-size: 10px;
+      }
+
+        .minf {
+          position: relative;
+          background-color: $sb-bg3;
+          border-radius: 8px 0 8px 8px;
+          width: calc(100% - 15px);
+          padding: 10px 15px 10px 15px;
+          color: rgba(255,255,255,1);
+          line-height: 20px;
+        }
+
+        .mhidden {
+          color: $color_star_dust_approx;
+        }
+
+        .mconn {
+          color: $color_star_dust_approx;
+        }
+
+        .ninf {
+          padding: 0 10px;
+          display: none;
+          padding: 10px 15px 10px 15px;
+        }
+
+        .nevent {
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 10px;
+        }
+
+        .nconn {
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 10px;
+        }
+
+        .mavatar {
+          display: none;
+        }
+
+      .mevent {
+        //display: flex;
+        //justify-content: space-between;
+        color: $sb-bg1;
+
+        &.download {
+          margin: 5px 10px 5px 10px;
+          border-radius: 8px 0 8px 8px;
+          color: rgba(255,255,255,1);
+          line-height: 20px;
+
+          fieldset {
+            padding: 5px;
+            margin: 5px;
+            border: solid 1px $color_bilbao_approx;
+            border-radius: 5px;
+            background-color: $color_message_nouser_bg;
+          }
+
+          fieldset legend {
+            padding: 5px;
+            border: 1px solid $color_bilbao_approx;
+            border-radius: 5px;
+            color: $sb-bg1;
+            font-size: 90%;
+            text-align: right;
+            background-color: $color_message_nouser_bg;
+          }
+
+        }
+      }
+//------------------ Upload --
+        .nupload {
+          display: flex;
+          justify-content: space-between;
+
+          .name {
+            display: none;
+            position: absolute;
+            color: #a2dda9;
+            bottom: 15px;
+            left: 10px;
+          }
+
+          .time {
+            position: absolute; z-index: 100;
+            color: #a2dda9;
+            font-size: 10px;
+            line-height: 12px;
+            bottom: 10px;
+            right: 20px;
+          }
+          .avatar > img {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #bababa;
+            padding: 1px;
+            border-radius: 100%;
+            background-color: #fff;
+          }
+
+          .mess {
+            position: relative;
+            top: 0px;
+            margin: 5px 10px 5px 60px;
+            padding: 10px 15px 20px 15px;
+            width: 100%;
+            background-color: $sb-bg1;
+            border-radius: 8px 0 8px 8px;
+            color: rgba(255,255,255,1);
+            line-height: 20px;
+            height: 70px;
+
+            .upload {
+
+              .sector {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px;
+                width: 40px;
+                border: 1px solid #7ed086;
+                border-radius: 100%;
+              }
+              .icon {
+                position: absolute;
+                top: 18px;
+                left: 18px;
+                @include upload-ico24('');
+                height: 24px;
+                width: 24px;
+                //overflow: hidden;
+              }
+              .process {
+                position: absolute;
+                bottom: 1px;
+                left:  18px;
+              }
+              .filename {
+                position: absolute;
+                top: 10px;
+                left: 60px;
+              }
+            }
+          }
+
+        }
+
+//------------------ USER --
+        .nuser {
+          display: flex;
+          justify-content: space-between;
+
+          .arrows-img {
+            width: 100%;
+            border-radius: 1px;
+            margin-bottom: 2px;
+            margin-top: 5px
+          }
+
+          .avatar > img {
+              position: absolute;
+              top: 10px;
+              left: 15px;
+              width: 40px;
+              height: 40px;
+              border: 1px solid #bababa;
+              padding: 1px;
+              border-radius: 100%;
+              background-color: #fff;
+          }
+
+          .name {
+            display: none;
+            position: absolute;
+            color: #a2dda9;
+            bottom: 15px;
+            left: 10px;
+          }
+
+          .time {
+            position: absolute; z-index: 100;
+            color: #a2dda9;
+            font-size: 10px;
+            line-height: 12px;
+            bottom: 10px;
+            right: 20px;
+          }
+
+          .mess {
+            position: relative;
+            top: 0px;
+            margin: 5px 10px 5px 60px;
+            padding: 10px 15px 20px 15px;
+            width: 100%;
+            background-color: $sb-bg1;
+            border-radius: 8px 0 8px 8px;
+            color: rgba(255,255,255,1);
+            line-height: 20px;
+          }
+
+          .muser .mess {
+            display: block;
+            color: $color_rhino_approx;
+            margin: 7px 0 5px 10px;
+          }
+          .magent .mess {
+            display: block;
+            color: $color_rhino_approx;
+            margin: 7px 0 5px 10px;
+          }
+        }
+//------------------ AGENT --
+        .nagent {
+          display: flex;
+          justify-content: space-between;
+
+          .arrows-img {
+            width: 100%;
+            border-radius: 1px;
+            margin-bottom: 2px;
+            margin-top: 5px
+          }
+
+          .avatar > img {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #bababa;
+            padding: 1px;
+            border-radius: 100%;
+            background-color: #fff;
+          }
+
+          .time {
+            position: absolute; z-index: 100;
+            color: #aaabaa;
+            font-size: 10px;
+            line-height: 12px;
+            bottom: 10px;
+            right: 20px;
+          }
+          .name {
+            display: none;
+            position: absolute;
+            color: #a2dda9;
+            bottom: 15px;
+            left: 10px;
+          }
+          .mess {
+            position: relative;
+            top: 0px;
+            margin: 5px 10px 5px 60px;
+            padding: 10px 15px 20px 15px;
+            width: 100%;
+            background-color: rgba(243,243,243,1);
+            border-radius: 0 8px 8px 8px;
+            color: rgba(23,23,24,1);
+            line-height: 20px;
+          }
+        }
+
+        .clear {
+          clear: both;
+        }
+        .radiobox_radiobox {
+          margin: 10px;
+          display: block;
+          white-space: nowrap;
+        }
+
+        .submited {
+          margin: 20px 10px;
+          height: 24px;
+          background-color: #b0b0b0;
+          text-align: center;
+
+          div {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            //margin-left: -60px;
+            min-width: 100px;
+            line-height: 30px;
+            padding: 0 10px;
+            font-weight: bold;
+            background-color: #299c48;
+            color: #FFF;
+          }
+
+        }
+
+        .mindask {
+          margin: 10px;
+          padding: 2px;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+          font-style: inherit;
+          vertical-align: baseline;
+          .question {
+            font-weight: bold;
+            display: block;
+          }
+        }
+
+        .mindans {
+          margin: 10px;
+          padding: 2px;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+
+          background: $white;
+          font-style: inherit;
+          font-size: 100%;
+          vertical-align: baseline;
+          .question {
+            font-weight: bold;
+            border-bottom: 1px solid $color_nepal_approx;
+            &:before {
+              content: $url_12;
+              width: 20px;
+            }
+          }
+          .answer {
+            margin-left: 17px;
+            &:before {
+              content: $url_11;
+              width: 20px;
+            }
+          }
+        }
+
+        .helpful {
+          width: 280px;
+          height: 30px;
+          white-space: nowrap;
+          display: block !important;
+          margin: 5px 20px 5px 1px;
+          clear: both;
+          span {
+            font: 10px/100% $font_7;
+            color: $color_tapa_approx;
+            &.yes {
+              color: $color_tapa_approx;
+              font-size: 11px;
+              border-bottom: 1px solid $white;
+            }
+          }
+          sub {
+            font-size: 10px;
+            position: relative;
+            top: 2px;
+            left: 1px;
+            color: $color_mountain_mist_approx;
+          }
+          em {
+            &.no {
+              color: $color_scarlet_approx;
+              border-bottom: 1px dashed $color_scarlet_approx;
+              margin: 0 2px 0 7px;
+              cursor: pointer;
+            }
+            &.yes {
+              color: $color_forest_green_approx;
+              border-bottom: 1px dashed $color_forest_green_approx;
+              margin: 0 2px 0 7px;
+              cursor: pointer;
+            }
+            &.pollcomment {
+              color: $gray;
+              border-bottom: 1px dashed $gray;
+              margin: 0 2px 0 10px;
+            }
+          }
+        }
+        .helpful-title {
+          float: left;
+          text-align: center;
+          font-size: 11px;
+        }
+        .helpful-button {
+          float: right;
+          width: 190px;
+          margin: 11px 0 5px 0 !important;
+          overflow: hidden;
+        }
+        .helpful-bar {
+          width: 80px;
+          border: 1px solid $color_vivid_tangerine_approx !important;
+          height: 4px !important;
+          margin: 5px 0 5px !important;
+          overflow: hidden;
+        }
+        .helpful-likes {
+          background: $color_norway_approx;
+          border-right: 1px solid $white;
+          float: left;
+          height: 4px;
+        }
+        .helpful-dislikes {
+          background: $color_vivid_tangerine_approx;
+          float: right;
+          height: 4px;
+          margin-right: -1px;
+        }
+        .helpful-form-comment{
+          background: $color_suva_gray_approx;
+          clear: both;
+          position: relative;
+          top: 1px;
+          left: 10px;
+          right: 0px;
+          min-width: 200px;
+          width: 100%;
+
+          div  {
+            float: left;
+            input[type="text"]  {
+              background: $color_vivid_tangerine_approx;
+              min-width: 200px;
+              width: 100%;
+            }
+
+            input[type="submit"] {
+              float: left;
+              text-align: center;
+              cursor: default;
+              color: buttontext;
+              padding: 1px;
+              width: 100px;
+              &:hover {
+                text-align: center;
+                cursor: default;
+                color: buttontext;
+                padding: 1px;
+              }
+              &:focus::-moz-focus-inner {
+                padding: 2px 1px 1px;
+              }
+            }
+
+          }
+        }
+    }
+}
+
+.messageOff {
+  font-size: 12px;
+  color: $color_gallery_approx;
+  background-color: $color_chicago_approx;
+  padding-left: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  line-height: 17px;
+}
+
+.mindpanel {
+  margin-top: 20px;
+  height: 27px !important;
+  overflow: hidden;
+  background-color: $background-color-highlight;
+  position: relative;
+}
+
+.mindhome {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  div {
+    background: transparent $url_10 repeat-x top;
+    background-position: -545px -426px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.mindbackward {
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  div {
+    background: transparent $url_10 repeat-x top;
+    background-position: -493px -426px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.mindforward {
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+  div {
+    background: transparent $url_10 repeat-x top;
+    background-position: -519px -426px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.mindoperator {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  div {
+    background: transparent $url_10 repeat-x top;
+    background-position: -570px -426px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.submitpanel {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -60px;
+  width: 120px;
+  height: 27px !important;
+}
+
+.yes {
+  margin: 0 2px 0 0;
+  font-size: 13px;
+}
+.no {
+  margin: 0 2px 0 0;
+  font-size: 13px;
+}
+.pollcomment {
+  margin: 0 2px 0 0;
+  font-size: 13px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}

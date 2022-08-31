@@ -1,0 +1,65 @@
+body.x-desktop {
+  overflow: hidden;
+}
+
+body > div {
+  position: fixed !important;
+  left: 0px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.fl_l {
+  float: left;
+}
+.fl_r {
+  float: right;
+}
+.ta_l {
+  text-align: left;
+}
+.ta_r {
+  text-align: right;
+}
+.ta_c {
+  text-align: center;
+}
+.sm {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  display: block;
+  overflow: hidden;
+  li {
+    float: left;
+    display: inline;
+    overflow: hidden;
+  }
+}
+.onshow {
+  display: inline;
+  overflow: hidden;
+}
+.onhide {
+  display: none !important;
+}
+.onrelative {
+  position: relative !important;
+  height: auto;
+  display: block;
+}
+
+.font11 {
+  font-size: 11px;
+}
+.text {
+  font-size: 12px;
+  color: $black;
+  span.grey {
+    color: $color_boulder_approx;
+  }
+}
+.small {
+  font-size: 11px;
+}

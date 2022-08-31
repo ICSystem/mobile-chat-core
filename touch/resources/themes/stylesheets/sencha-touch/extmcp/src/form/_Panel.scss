@@ -1,0 +1,48 @@
+/**
+ * @class Ext.form.Panel
+ */
+
+.x-form {
+	//.x-scroll-container {
+	//	background-color: #edebf1;
+	//}
+
+	> input[type=submit] {
+		display: none;
+	}
+
+	.x-field .x-field-input,
+	.x-field .x-input-el {
+		font-weight: 400;
+		font-size: 1.1em;
+		color: rgb(23, 23, 24);
+	}
+
+	&.x-floating {
+		.x-input-el {
+			padding-top: .5em;
+		}
+	}
+
+	.x-field .x-field-input {
+		border: 0px;
+		background-color: transparent;
+	}
+}
+
+.x-form-label {
+	padding: .5em 0em .1em 0em;
+
+	span {
+		font-size: 0.9em;
+		text-transform: uppercase;
+		font-weight: 300;
+		color: rgb(124, 124, 124);
+	}
+}
+
+.x-form-fieldset .x-form-fieldset-inner {
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	overflow: hidden;
+}

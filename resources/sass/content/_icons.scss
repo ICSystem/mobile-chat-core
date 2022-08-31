@@ -1,0 +1,122 @@
+.emoji{-moz-box-orient:vertical;display:inline-block;vertical-align:baseline;height:18px;width:18px;background-repeat:no-repeat;text-indent:-9999px;border:0}
+.emoji-spritesheet-0{background-size:486px 126px;background-image:url('../images/icons/emojisprite_0.png')}
+.emoji-spritesheet-1{background-size:522px 72px;background-image:url('../images/icons/emojisprite_1.png')}
+.emoji-spritesheet-2{background-size:594px 126px;background-image:url('../images/icons/emojisprite_2.png')}
+.emoji-spritesheet-3{background-size:612px 54px;background-image:url('../images/icons/emojisprite_3.png')}
+.emoji-spritesheet-4{background-size:612px 126px;background-image:url('../images/icons/emojisprite_4.png')}
+.emoji-w20{width:20px;height:20px;vertical-align:middle;display:inline-block}
+.emoji-w20.emoji-spritesheet-0{background-size:540px 140px}
+.emoji-w20.emoji-spritesheet-1{background-size:580px 80px}
+.emoji-w20.emoji-spritesheet-2{background-size:660px 140px}
+.emoji-w20.emoji-spritesheet-3{background-size:680px 60px}
+.emoji-w20.emoji-spritesheet-4{background-size:680px 140px}
+.emoji-w26{width:26px;height:26px;vertical-align:middle;display:inline-block}
+.emoji-w26.emoji-spritesheet-0{background-size:702px 182px}
+.emoji-w26.emoji-spritesheet-1{background-size:754px 104px}
+.emoji-w26.emoji-spritesheet-2{background-size:858px 182px}
+.emoji-w26.emoji-spritesheet-3{background-size:884px 78px}
+.emoji-w26.emoji-spritesheet-4{background-size:884px 182px}
+
+
+.x-msgtblbottom-grid {
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+
+.x-msgtblbottom-grid:hover {
+  opacity: 1;
+}
+
+.x-icon-grid-item {
+
+  &.x-info-event {
+    //position: absolute;
+    //bottom: 0px;
+    //left: 0px;
+    font-size: 0.9em;
+    color: #acacac;
+    border-color: transparent;
+    padding: 0px 5px;
+    justify-content: flex-start;
+    text-align: left;
+    display: block;
+    min-width: 100px;
+    line-height: 40px;
+    border-radius: 50px;
+  }
+
+  &.x-info-number:hover {
+    opacity: 1;
+  }
+
+  &.x-info-number {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    opacity: 0.7;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto 5px;
+    font-size: 16px;
+    //text-align: center;
+    display: block;
+  }
+
+  &.x-info-number .x-info-badge {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    padding: 2px 6px;
+
+    position: relative;
+    right: -10px;
+    top: 10px;
+  }
+}
+
+.x-icon-grid svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  background: #FFF !important;
+  border-radius: 50px;
+  color: rgb(41, 156, 72);
+}
+.x-icon-glyph.down {
+  color: rgb(41, 156, 72);
+}
+
+.x-icon-close {
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:90px 90px;
+  background-image:url('../images/icons/close.svg');
+}
+
+.x-icon-warning {
+  height: 90px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:90px 90px;
+  background-image:url('../images/icons/warning.svg');
+}
+
+.bg-badge-red {
+  border-radius: 50px;
+  background:  rgb(234, 37, 72) !important;
+  border: 1px solid #FFF !important;
+  color: #FFF;
+}
+
+.bg-badge-green {
+  //background: rgb(41, 156, 72) !important;
+  border: 1px solid #FFF !important;
+  color: rgb(41, 156, 72);
+}

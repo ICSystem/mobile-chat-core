@@ -1,0 +1,28 @@
+.x-field-textarea textarea {
+    min-height: 5em;
+    padding: .5em .5em .2em .0em;
+    color: #848484;
+    border-bottom: 1px solid $border-line;
+
+    line-height: 1.5;
+    text-align: left;
+    text-transform: none;
+    transition-duration: 450ms;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: none;
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+    display: block;
+    transition-property: color, border, boxShadow, background;
+    box-sizing: border-box;
+    border-radius: 0px;
+    background: transparent;
+    outline: none;
+
+    &:focus {
+        border-width: 0 0 2px 0;
+        border-color:  $border-color;
+    }
+}

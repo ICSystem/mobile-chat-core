@@ -1,0 +1,51 @@
+.x-msgleave-panel {
+
+  .x-msgleave-header {
+    padding: 0 !important;
+    //background-color: rgba(250,250,250,1);
+    color: rgba(79,79,79,1);
+    text-align: center;
+    font-size: 1.4em;
+    margin: 10px 20px 10px 20px;
+
+    .x-panel-header-inner {
+      border-bottom: 1px solid rgba(233,233,233,1);
+
+      .x-panel-title {
+        padding: 0.44445em 0.88889em;
+      }
+
+      .x-tool {
+        color: rgba(41,41,41,1);
+
+        &:last-child {
+          margin-right: 0.88889em;
+        }
+
+        &.fullScreenIco {
+          background-image: url("../images/rating/full.png");
+
+          .x-tool-maximize {
+
+            &:before {
+              content: '';
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .x-msgleave-comment {
+    padding: 10px !important;
+
+    & .x-form-label {
+      width: 100%;
+    }
+
+  }
+
+  .x-msgleave-btn{
+    margin-top: 40px;
+  }
+}

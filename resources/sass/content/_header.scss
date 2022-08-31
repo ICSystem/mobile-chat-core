@@ -1,0 +1,23 @@
+.block-full-screen {
+  float: left;
+  height: 60px;
+  width: 30px;
+  @include ico-bg(20px auto, center);
+  @include full-screen-ico('rgba(255,255,255,1)');
+  cursor: pointer;
+
+  &.turn-minimize {
+    float: left;
+    height: 60px;
+    width: 30px;
+    @include minimize-ico('rgba(255,255,255,1)');
+  }
+}
+
+.block-turn-off {
+  height: 60px;
+  width: 30px;
+  @include ico-bg(20px auto, center);
+  @include  turn-off-ico('rgba(255,255,255,1)');
+  cursor: pointer;
+}

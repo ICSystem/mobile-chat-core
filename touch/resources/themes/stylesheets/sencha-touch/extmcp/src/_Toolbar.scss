@@ -1,0 +1,53 @@
+.x-toolbar {
+	background-color: $header-background-color;
+	min-height: 2.85em;
+
+	&.x-docked-bottom {
+		border-top: 1px solid #ccc;
+	}
+
+	&.x-docked-top {
+		border-bottom: 1px solid #ccc;
+		.x-button {
+			padding-top: .15em;
+		}
+	}
+
+	&.x-docked-left {
+		border-right: 1px solid #ccc;
+	}
+
+	&.x-docked-right {
+		border-left: 1px solid #ccc;
+	}
+
+	.x-title {
+		// color: $header-text-color;
+		color: #ffffff;
+		font-weight: 500;
+		font-size: 1.4em;
+		padding-top: .3em;
+	}
+
+	.x-button {
+		border: 0;
+		background-color: transparent;
+		margin: 0 5px;
+		height: 2.0em;
+
+		&:hover {
+			border-radius: 40%;
+			opacity: 0.7;
+		}
+
+		&.x-button-pressing {
+			border-radius: 40%;
+			background-color: $ios-onmcp-focus;
+			color: $color-lighten;
+		}
+	}
+
+	.x-button-label {
+		font-size: 1.1em;
+	}
+}
